@@ -31,7 +31,7 @@
     text-align: left;
   } */
 input, select{
-    width: 160px;
+    /* width: 160px; */
     max-width: 200px;
 }
 label
@@ -41,7 +41,19 @@ label
     color: #000;
     
 }
-/* under progress styles, yet to be implemented */
+.form-blue-container{
+    
+    padding:10px;
+    border: 2px solid sandybrown;
+    border-radius: 4px;
+}
+.input-radio{
+    margin:5px;
+}
+.radio-label{
+    margin-right: 20px;
+    vertical-align: top;
+}
 .form-controls-group{
     width: 250px;
     margin-right: 50px;

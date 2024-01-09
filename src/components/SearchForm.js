@@ -56,14 +56,15 @@ const SearchForm = () => {
                 <h2 className="text-center mb-3 pb-3">Search Flights</h2>
                 <form action="#" onSubmit={handleSubmit}>
                     <div>
-                        <div className="mb-3 form-controls-group" style={{backgroundColor:'skyblue'}}>
+                        {/* <div className="mb-3 form-blue-container">
                             <div>
-                                <label for="oneway">One way</label>
-                                <input className=""  type="radio" id="oneway" name="journeyType" value="oneway"/>
-                                <label for="twoway">Return Journey</label>
-                                <input type="radio" id="twoway" name="journeyType" value="twoway"/>
+                                <input type="radio" id="oneway" name="journeyType" value="oneway" className="input-radio"/>
+                                <label for="oneway" className="radio-label">One Way Journey</label>
+                                <input type="radio" id="twoway" name="journeyType" value="twoway"className="input-radio" />
+                                <label for="twoway" className="radio-label">Return Journey</label>
+                                
                             </div>
-                        </div>
+                        </div> */}
                         <div className="mb-3 form-controls-group">
                             <label className="label-search-form">From City:
                             </label>
