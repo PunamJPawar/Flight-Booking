@@ -3,6 +3,7 @@ import FlightNavBar from './FlightNavBar'
 import SearchForm from '../components/SearchForm'
 import Home from '../components/Home'
 import PageNotFound from '../components/PageNotFound'
+// import Appp from '../components/Appp'
 
 
 const FlightRouter = ()=>{
@@ -12,6 +13,7 @@ const FlightRouter = ()=>{
                 <Route path='/' element={<FlightNavBar/>} >
                     {/* <Route index element={<Home/>} /> */}
                     <Route index element={<SearchForm/>} />
+                    {/* <Route path='/traveller' element={<Appp/>} /> */}
                     <Route path='/search' element={<SearchForm/>} />
                     <Route path='*' element={<PageNotFound/>}/>
                 </Route>

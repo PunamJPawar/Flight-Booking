@@ -11,7 +11,7 @@
 
 /* removed airplane animation */
 .search-form{
-    margin-top : 320px;
+    margin-top : 285px;
     width: 720px;
 }
 .form-controls-group{
@@ -71,4 +71,8 @@ label
 }
 .form-control{
     margin-top: 16px;
+}
+.button-blue{
+    /* background: linear-gradient(93deg, #53b2fe, #065af3) !important; */
+    background: linear-gradient(93deg, #53b2fe, #000000) !important;
 }

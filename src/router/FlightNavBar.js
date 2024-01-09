@@ -11,6 +11,11 @@ const FlightNavBar = ()=>{
                         <Link className="nav-link" to='/search'>Search</Link>
                     </li>
                     
+                    {/* <li className="nav-item">
+                        <Link className="nav-link" to='/traveller'>Traveller</Link>
+                    </li> */}
+
+                    
                 </ul>
             </nav>
             <Outlet />

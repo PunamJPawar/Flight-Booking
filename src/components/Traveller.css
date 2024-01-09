@@ -1,0 +1,15 @@
+.label-1{
+    /* font-size: larger; */
+    font-weight: bolder;
+    display: flex;
+    justify-content:space-between;
+    margin-left: 200px;
+}
+
+.label-1::before{
+    color: green;
+    
+}
+.in{
+   margin-right: 200px; 
+}

@@ -1,6 +1,11 @@
 import { useState } from "react"
 import './form.css';
 import products from "../data/productData"
+// new code
+import RadioButton from "./RadioButton";
+import Travellers from "./Travellers";
+import Popup from "./popup/Popup";
+
 
 
 const SearchForm = () => {
@@ -45,9 +50,13 @@ const SearchForm = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Search Form is submitted")
+        // alert("Search Form is submitted")
     }
-
+    
+// new code
+const [buttonPopup,setButtonPopup]=useState(false);
+    
+const[trigger,setTrigger]=useState(false)
 
     return (
         <>
@@ -111,14 +120,21 @@ const SearchForm = () => {
 
                     </div>
                     <div className="mb-3 form-controls-group">
-                        <label className="label-search-form">Travellers</label>
-                        <input type="number" className="form-control" disabled/>
+                        {/* new code */}
+                        <div>
+                            <main>
+                                <button className="btn-2" onClick={()=>setButtonPopup(true)}>Traveller | Class</button>
+                            </main>
+                                
+                            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                                               
+                                <RadioButton></RadioButton>
+                                <Travellers/>                               
+                            </Popup>
+                        </div>
+                        {/* end of new code */}
                     </div>
-                    <div className="mb-3 form-controls-group">
-                        <label className="label-search-form">Class</label>
-                        <input type="number" className="form-control" disabled/>
-                    </div>
-                    <button className="btn btn-dark" type="submit">Search</button>
+                    <button className="btn btn-dark button-blue" type="submit">Search</button>
                 </form>
             </div>
             <div>
