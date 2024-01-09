@@ -1,0 +1,62 @@
+/* .search-group
+{
+    display: flex;
+    justify-content: center;
+}
+.search-group select{
+
+    width: 200px;
+    margin: 0px 10px 0px 0px;
+}    */
+
+/* removed airplane animation */
+.search-form{
+    margin-top : 320px;
+    width: 720px;
+}
+.form-controls-group{
+    display: inline-block;
+    margin-right: 100px;
+    padding: 0px 20px;
+    width: 160px; 
+}
+/* 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+}
+.grid-item {
+    font-size: 30px;
+    text-align: left;
+  } */
+input, select{
+    width: 160px;
+    max-width: 200px;
+}
+label
+{
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    
+}
+/* under progress styles, yet to be implemented */
+.form-controls-group{
+    width: 250px;
+    margin-right: 50px;
+    border: 2px solid rgb(225, 231, 238);
+    border-radius: 8px;
+    position:relative;
+    height: 75px;
+}
+.label-search-form{
+    position: absolute;
+    top:-10px;
+    background-color: #F8F9FA;
+    padding:0px 3px 0px;
+   
+}
+.form-control{
+    margin-top: 16px;
+}
