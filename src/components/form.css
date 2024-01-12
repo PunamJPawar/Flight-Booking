@@ -1,7 +1,7 @@
 
 /* removed airplane animation */
 .search-form{
-    margin-top : 285px;
+    margin-top : 245px;
     width: 720px;
 }
 .form-controls-group{
@@ -11,7 +11,7 @@
     width: 160px; 
 }
 
-input, select{
+.search-form input, .search-form select{
     /* width: 160px; */
     max-width: 200px;
 }
@@ -50,7 +50,7 @@ label
     padding:0px 3px 0px;
    
 }
-.form-control{
+.search-form .form-control{
     margin-top: 16px;
 }
 .button-blue{

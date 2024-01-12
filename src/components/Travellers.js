@@ -23,7 +23,12 @@ const Travellers = () => {
         setCount({ ...count, infant: event.target.value })
     }
     const handleDone=()=>{
-        setIssubmited(true)
+        const totalTravellers = parseInt(count.adult)+parseInt(count.child)+parseInt(count.infant)
+        if(totalTravellers>9){
+            alert("Error: You can only select maximum 9 travellers!")
+        }
+        else
+        {setIssubmited(true)}
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -65,7 +70,7 @@ const Travellers = () => {
                     </div>
 
 
-                    <button className="btn btn-outline-dark" type="submit" onClick={handleDone}>Done</button>
+                    <button className="btn btn-outline-dark" type="submit" onClick={handleDone}>Submit</button>
                     <button className="btn btn-outline-dark ms-4" type="reset" onClick={() => setCount({ adult: "1", child: "0", infant: "0" })}>Reset</button>
 
                 </form>
@@ -82,7 +87,7 @@ const Travellers = () => {
 
                 <button className="btn btn-success" onClick={() => {
                     setIssubmited(false); setCount({ adult: "1", child: '0', infant: '0' })
-                }}>Back to Form</button>
+                }}>Edit the Travellers</button>
 
             </div>
             }

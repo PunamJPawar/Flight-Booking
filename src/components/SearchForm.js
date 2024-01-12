@@ -27,7 +27,7 @@ const SearchForm = () => {
     var currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     
     // to show flight results after click on search button ie. after form submission
-    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isSearchSubmitted, setIsSearchSubmitted] = useState(false)
 
     const handleFromChange = (event) => {
         setFlight({ ...flight, fromCity: event.target.value })
@@ -51,7 +51,7 @@ const SearchForm = () => {
     const handleFromDateChange = (event) => {
         setFlight({ ...flight, fromDate: event.target.value });
         if (currentDate >= flight.fromDate) {
-            alert("Please select valid date!!!, Start date should be today or future date..")
+            // alert("Please select valid date!!!, Start date should be today or future date..")
             flight.fromDate = currentDate;
             //setFlight(flight.fromDate=' ')
         }
@@ -63,7 +63,7 @@ const SearchForm = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsSubmitted(true);
+        setIsSearchSubmitted(true);
         // alert("Search Form is submitted")
     }
     
@@ -74,7 +74,7 @@ const [buttonPopup,setButtonPopup]=useState(false);
     return (
         <>
         
-        {!isSubmitted && <div className="container shadow p-3 mb-5 bg-body-tertiary rounded search-form">
+        {!isSearchSubmitted && <div className="container shadow p-3 mb-5 bg-body-tertiary rounded search-form">
 
                 <h2 className="text-center mb-3 pb-3">Search Flights</h2>
                 <form action="#" onSubmit={handleSubmit}>
@@ -149,16 +149,15 @@ const [buttonPopup,setButtonPopup]=useState(false);
                         {/* end of new code */}
                     </div>
                     <button className="btn btn-dark button-blue" type="submit">Search</button>
-                    {/* <button value={searchCriteria} onClick={onSearch} type="submit" 
-                    className="btn btn-dark button-blue">Search</button> */}
+                    
                     
                 </form>
             </div>}
-            {isSubmitted && 
+            {isSearchSubmitted && 
             <div>
                 <h2 style={{textAlign:"center"}}>List Of Flights Starting From Location : {flight.fromCity} 
                 <button className ="btn btn-success" style={{marginLeft:"10px"}} onClick={()=>{
-                setIsSubmitted(false); 
+                setIsSearchSubmitted(false); 
                 }
                 }
                 > Back To Search </button></h2>

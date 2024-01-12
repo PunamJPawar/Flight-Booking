@@ -30,13 +30,14 @@
 
 .close-btn{
    position: absolute;
-   left: 48%;
-   bottom: 25%;
-   padding:  10px 20px;
-   border-radius: 10px;
+   left: 96%;
+   bottom: 90%;
+   border: 0px;
+   padding: 3px;
+   background-color: rgb(248,249,250, 0.2);
    color: black;
    font-weight: bolder;
-   background-color: #FEF9F7;
+   /* background-color: #FEF9F7; */
 
 }
 
