@@ -12,8 +12,7 @@ const FlightRouter = ()=>{
             <Routes>
                 <Route path='/' element={<FlightNavBar/>} >
                     {/* <Route index element={<Home/>} /> */}
-                    <Route index element={<SearchForm/>} />
-                    {/* <Route path='/traveller' element={<Appp/>} /> */}
+                    <Route index element={<SearchForm/>} />                    
                     <Route path='/search' element={<SearchForm/>} />
                     <Route path='*' element={<PageNotFound/>}/>
                 </Route>

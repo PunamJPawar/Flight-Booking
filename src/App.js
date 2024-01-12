@@ -1,6 +1,6 @@
 
 import './App.css';
-// import ProductTable from './components/ProductTable';
+// import FlightList from './components/flightDetails/FlightList';
 // import SearchForm from './components/SearchForm';
 import FlightRouter from './router/FlightRouter';
 
@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="App">
     {/* <SearchForm /> */}
-    {/* <ProductTable /> */}
-    <FlightRouter/>
+        <FlightRouter/>
+    {/* <FlightList /> */}
+    
     </div>
   );
 }

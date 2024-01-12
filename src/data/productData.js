@@ -1,14 +1,13 @@
 //flight data file : array of cities n flights product object
 const products =[
+    {id:1, name:"Mumbai", code:"MB"},
+    {id:2, name:"Pune", code:"PN"},
+    {id:3, name:"Delhi", code:"DL"},
+    {id:4, name:"Kolkata", code:"KL"},
+    {id:5, name:"Banglore", code:"BL"},
+    {id:6, name:"Kochi", code:"KC"},
+    {id:7, name:"Vizag", code:"VI"},
     
-    {id:1, name:"Pune", code:"(PNQ)"},
-    {id:2, name:"Mumbai", code:"(BOM)"},
-    {id:3, name:"Delhi", code:"(DEL)"},
-    {id:4, name:"Kolkata", code:"(CCU)"},
-    {id:5, name:"Banglore", code:"(BLR)"},
-    {id:6, name:"Kochi", code:"(KCH)"},
-    {id:7, name:"Vizag", code:"(VIZ)"},
-    {id:8, name:"Indore", code:"(INR)"}
 ]
 
 export default products

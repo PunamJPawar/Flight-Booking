@@ -22,7 +22,9 @@ const Travellers = () => {
     const handleInfantChange = (event) => {
         setCount({ ...count, infant: event.target.value })
     }
-
+    const handleDone=()=>{
+        setIssubmited(true)
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -63,16 +65,14 @@ const Travellers = () => {
                     </div>
 
 
-                    <button className="btn btn-outline-dark" type="submit">Done</button>
+                    <button className="btn btn-outline-dark" type="submit" onClick={handleDone}>Done</button>
                     <button className="btn btn-outline-dark ms-4" type="reset" onClick={() => setCount({ adult: "1", child: "0", infant: "0" })}>Reset</button>
 
                 </form>
             </div>
             }
 
-            {isSubmited && <div className="border border-2 border-success rounded-3 p-4 mb-2 m-3
-            
-            " >
+            {isSubmited && <div className="border border-2 border-success rounded-3 p-4 mb-2 m-3">
                 <h3>Your details</h3>
                 <h5>No.of Adults:{count.adult}</h5>
                 <h5>No.of Child: {count.child}</h5>

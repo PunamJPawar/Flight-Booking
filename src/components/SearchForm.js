@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { useState,createContext} from "react"
 import './form.css';
 import products from "../data/productData"
 // new code
 import RadioButton from "./RadioButton";
 import Travellers from "./Travellers";
 import Popup from "./popup/Popup";
+import FlightResult from "./FlightResult";
+// CityContext is context object created globally so that it can be accesses by FlightResult child compo.
+export const CityContext = createContext()
 
 
 
@@ -13,32 +16,41 @@ const SearchForm = () => {
     const [flight, setFlight] = useState({
 
         fromCity: 'Pune',
-        toCity: 'Mumbai',
+        toCity: 'Vizag',
         fromDate: '',
         toDate: '',
         travellers: 0,
         classType: ''
     })
-    // const city = ["Pune", "Mumbai", "Delhi", "Kolkata"]
+    
     var date = new Date();
     var currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     
+    // to show flight results after click on search button ie. after form submission
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleFromChange = (event) => {
         setFlight({ ...flight, fromCity: event.target.value })
+        const value=event.target.value
+        checkIfValuesAreEqual(value, flight.toCity);
     }
     const handleToChange = (event) => {
         setFlight({ ...flight, toCity: event.target.value })
-        // if(flight.fromCity.valueOf==flight.toCity.valueOf)
-        // {
-        //     alert("please select proper travel destination")
-        //     // flight.toCity.valueOf=''
-
-        // }
+        
+        const value=event.target.value
+        checkIfValuesAreEqual(flight.fromCity, value);
     }
+    const checkIfValuesAreEqual = (value1, value2) => {
+        if (value1 === value2) {
+          console.log('Both select boxes have the same value.');
+          alert("From City And To City must be different!")
+        } else {
+          console.log('Select boxes have different values.');
+        }
+      };
     const handleFromDateChange = (event) => {
         setFlight({ ...flight, fromDate: event.target.value });
-        if (currentDate = flight.fromDate) {
+        if (currentDate >= flight.fromDate) {
             alert("Please select valid date!!!, Start date should be today or future date..")
             flight.fromDate = currentDate;
             //setFlight(flight.fromDate=' ')
@@ -48,19 +60,21 @@ const SearchForm = () => {
     const handleToDateChange = (event) => {
         setFlight({ ...flight, toDate: event.target.value })
     }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsSubmitted(true);
         // alert("Search Form is submitted")
     }
     
 // new code
 const [buttonPopup,setButtonPopup]=useState(false);
     
-const[trigger,setTrigger]=useState(false)
 
     return (
         <>
-            <div className="container shadow p-3 mb-5 bg-body-tertiary rounded search-form">
+        
+        {!isSubmitted && <div className="container shadow p-3 mb-5 bg-body-tertiary rounded search-form">
 
                 <h2 className="text-center mb-3 pb-3">Search Flights</h2>
                 <form action="#" onSubmit={handleSubmit}>
@@ -135,30 +149,28 @@ const[trigger,setTrigger]=useState(false)
                         {/* end of new code */}
                     </div>
                     <button className="btn btn-dark button-blue" type="submit">Search</button>
+                    {/* <button value={searchCriteria} onClick={onSearch} type="submit" 
+                    className="btn btn-dark button-blue">Search</button> */}
+                    
                 </form>
-            </div>
+            </div>}
+            {isSubmitted && 
             <div>
-                <h2>Selected Flight Details</h2>
-                <table className="table table-striped"  >
-                    <thead>
-                        <tr>
-                            <th>From City </th>
-                            <th>To City </th>
-                            <th>From Date </th>
-                            <th>Return Date </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{flight.fromCity}</td>
-                            <td>{flight.toCity}</td>
-                            <td>{flight.fromDate}</td>
-                            <td>{flight.toDate}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div>
+                <h2 style={{textAlign:"center"}}>List Of Flights Starting From Location : {flight.fromCity} 
+                <button className ="btn btn-success" style={{marginLeft:"10px"}} onClick={()=>{
+                setIsSubmitted(false); 
+                }
+                }
+                > Back To Search </button></h2>
+                <div>
+                    {flight.fromCity &&
+                    <CityContext.Provider value={flight.fromCity}>
+                        <FlightResult/>
+                    </CityContext.Provider>
+                    }
+                </div>
+            </div>}
+            
         </>
     )
 }
